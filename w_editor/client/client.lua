@@ -2,8 +2,8 @@
   -- https://github.com/wiizzdev --
  -- https://discord.gg/VpYP58ZjmD --
 
-local mainMenu = RageUI.CreateMenu("", "Editeur Rockstar")
-local confirmation = RageUI.CreateSubMenu(mainMenu, "", "Confirmation")
+local mainMenu = RageUI.CreateMenu("Editeur Rockstar", "MENU")
+local confirmation = RageUI.CreateSubMenu(mainMenu, "Confirmation", "MENU")
 local open = false
 
 mainMenu.Closed = function() open = false end
