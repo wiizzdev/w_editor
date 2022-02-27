@@ -2,13 +2,6 @@
   -- https://github.com/wiizzdev --
  -- https://discord.gg/VpYP58ZjmD --
 
-Citizen.CreateThread(function()
-    while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(5000)
-    end
-end)
-
 local mainMenu = RageUI.CreateMenu("", "Editeur Rockstar")
 local confirmation = RageUI.CreateSubMenu(mainMenu, "", "Confirmation")
 local open = false
