@@ -27,11 +27,15 @@ function Editeur()
                 while open do 
                     RageUI.IsVisible(mainMenu, function()
                         RageUI.Button("Lancer l'Éditeur Rockstar", nil, {RightLabel = "→"}, true, {}, confirmation)
-                        RageUI.Button("Lancer l'Enregistrement", nil, {RightLabel = "→"}, true, {
-                            onSelected = function()
-                                StartRecording(1)
-                            end
-                        })
+                        if not (IsRecording()) then
+                            RageUI.Button("Lancer l'Enregistrement", nil, {RightLabel = "→"}, true, {
+                                onSelected = function()
+                                    StartRecording(1)
+                                end
+                            })
+                        else
+                            RageUI.Button("Lancer l'Enregistrement", "~r~Vous êtes déjà en enregistrement", {}, false, {})
+                        end
                         if(IsRecording()) then
                             RageUI.Button("Arrêter l'Enregistrement", nil, {RightLabel = "→"}, true, {
                                 onSelected = function()
@@ -62,6 +66,6 @@ function Editeur()
     end
 end
 
-RegisterCommand("editor", function(source, args, rawcommand)
+RegisterCommand("editor", function()
     Editeur()
-end, false)
+end)
